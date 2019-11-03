@@ -28,7 +28,7 @@ else
 fi      
 
 echo "---Checking for Minecraft Server executable ---"
-#if [ ! -f $SERVER_DIR/${JAR_NAME}.jar ]; then
+if [ ! -f $SERVER_DIR/${JAR_NAME}.jar ]; then
 	cd ${SERVER_DIR}
 	echo "---Downloading Minecraft Server 1.14.3---"
     wget -qi ${JAR_NAME} https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar
@@ -39,9 +39,9 @@ echo "---Checking for Minecraft Server executable ---"
         echo "----------------------------------------------------------------------------------------------------"
         sleep infinity
     fi
-#else
-	#echo "---Minecraft Server executable found---"
-#fi
+else
+	echo "---Minecraft Server executable found---"
+fi
 
 echo "---Preparing Server---"
 echo "---Checking for 'server.properties'---"
@@ -75,7 +75,7 @@ cd ${SERVER_DIR}
 #screen -S Minecraft -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/runtime/${RUNTIME_NAME}/bin/java -Xmx${XMX_SIZE}M -Xms${XMS_SIZE}M -jar ${SERVER_DIR}/${JAR_NAME}.jar nogui ${GAME_PARAMS}
 screen -S Minecraft -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m  /opt/scripts/serverloop.sh
 
-#sleep 2
+sleep 2
 #if [ ! -f $SERVER_DIR/eula.txt ]; then
 #	echo "---EULA not found please stand by...---"
 #	sleep 30
