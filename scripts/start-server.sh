@@ -96,10 +96,10 @@ sleep 2
 #else
 #	echo "---Something went wrong, please check EULA variable---"
 #fi
-#echo "---Waiting for logs, please stand by...---"
-#sleep 30
-#if [ -f ${SERVER_DIR}/logs/latest.log ]; then
-#        tail -F ${SERVER_DIR}/logs/latest.log
-#else
-#        tail -f ${SERVER_DIR}/masterLog.0
-#fi
+echo "---Waiting for logs, please stand by...---"
+sleep 10
+if [ -f ${SERVER_DIR}/logs/latest.log ]; then
+        tail -F ${SERVER_DIR}/logs/latest.log
+else
+        tail -f ${SERVER_DIR}/masterLog.0
+fi
