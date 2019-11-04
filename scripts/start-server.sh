@@ -28,12 +28,12 @@ else
 fi      
 
 echo "---Checking for Minecraft Server executable ---"
-if [ ! -f $SERVER_DIR/${JAR_NAME}.jar ]; then
+if [ ! -f ${SERVER_DIR}/${JAR_NAME}.jar ]; then
 	cd ${SERVER_DIR}
 	echo "---Downloading Minecraft Server 1.14.3---"
     wget -qi ${JAR_NAME} https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar
     sleep 2
-    if [ ! -f $SERVER_DIR/${JAR_NAME}.jar ]; then
+    if [ ! -f ${SERVER_DIR}/${JAR_NAME}.jar ]; then
     	echo "----------------------------------------------------------------------------------------------------"
     	echo "---Something went wrong, please install Minecraft Server manually. Putting server into sleep mode---"
         echo "----------------------------------------------------------------------------------------------------"
