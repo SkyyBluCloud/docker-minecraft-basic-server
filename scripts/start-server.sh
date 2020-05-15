@@ -73,7 +73,7 @@ find ${SERVER_DIR} -name "masterLog.*" -exec rm -f {} \;
 echo "---Starting Server---"
 cd ${SERVER_DIR}
 #screen -S Minecraft -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/runtime/${RUNTIME_NAME}/bin/java -Xmx${XMX_SIZE}M -Xms${XMS_SIZE}M -jar ${SERVER_DIR}/${JAR_NAME}.jar nogui ${GAME_PARAMS}
-screen -S Minecraft -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m /bin/bash /opt/scripts/serverloop.sh
+screen -S Minecraft -L -Logfile ${DATA_DIR}/masterLog.0 -d -m /bin/bash /opt/scripts/serverloop.sh
 
 sleep 2
 #if [ ! -f $SERVER_DIR/eula.txt ]; then
@@ -98,8 +98,8 @@ sleep 2
 #fi
 echo "---Waiting for logs, please stand by...---"
 sleep 10
-if [ -f ${SERVER_DIR}/logs/latest.log ]; then
-        tail -F ${SERVER_DIR}/logs/latest.log
+if [ -f ${DATA_DIR}/logs/latest.log ]; then
+        tail -F ${DATA_DIR}/logs/latest.log
 else
-        tail -f ${SERVER_DIR}/masterLog.0
+        tail -f ${DATA_DIR}/masterLog.0
 fi
